@@ -2,7 +2,6 @@ venv/
 .venv/
 .vscode/
 __pycache__/
-*.csv
 *.zip
 *.geojson
 *.pyc
