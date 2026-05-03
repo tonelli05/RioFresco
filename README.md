@@ -66,10 +66,7 @@ RioFresco/
 └── README.md
 ```
 👷 Autores
-Lucas de Moraes Brandão
-
-Pedro Tonelli da Cunha
-
-Isac Freire
-
-Nargylla Fernanda Cloviel Lima
+*Lucas de Moraes Brandão
+*Pedro Tonelli da Cunha
+*Isac Freire
+*Nargylla Fernanda Cloviel Lima
