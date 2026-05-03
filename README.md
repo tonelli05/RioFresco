@@ -40,15 +40,47 @@ Dataset Clima: Médias e máximas térmicas mensais.
 
 Dataset Saúde: Taxas de internação por doenças respiratórias e circulatórias.
 
+🧠 Pesquisa e Machine Learning (/research)
+
+Nesta etapa, focamos a análise nos meses de verão (dezembro a fevereiro), cruzando as temperaturas e umidade recordes citadas no Anuário do Turismo 2024 com o dataset consolidado df_regressao.csv.
+
+1. Regressão Linear (regressao_linear.ipynb)
+
+Testamos a hipótese: "Quanto maior a porcentagem de área verde, menor a temperatura máxima do bairro".
+
+Parâmetros analisados: Coeficiente da reta, Intercepto e $R^2$.Resultado do Modelo: O modelo apresentou um R squared de apenas 5% e um coeficiente positivo, contrariando a expectativa inicial.
+
+Análise Crítica (Insights de Dados): A baixa performance indicou que a temperatura no Rio de Janeiro é um fenômeno multivariado. Fatores como proximidade do litoral, altitude (relevo) e densidade construída exercem maior influência que a vegetação isolada.
+
+Artefato: Gráfico de dispersão (assets/scatter_temp_verde.png) mapeando a relação real entre essas variáveis.
+
+2. Clusterização e Índice de Vulnerabilidade (clusterizacao.ipynb)
+3. 
+Diante da complexidade da regressão, aplicamos Aprendizado Não Supervisionado para segmentar os bairros conforme o risco climático.
+
+Engenharia de Atributos - IVT: Criamos o Índice de Vulnerabilidade Térmica (IVT), uma métrica ponderada para priorizar bairros que necessitam de intervenção:
+IVT = (Temp x 0.5) + ((1 - ÁreaVerde) x 0.3) + ((1 - Umidade) x 0.2)
+
+Algoritmo KMeans (k=3): Os bairros foram segmentados em três perfis de risco:
+🔴 Emergência Térmica: Altos IVTs e temperaturas extremas.
+🟡 Vulnerabilidade Urbana: Nível intermediário de exposição e baixa resiliência.
+🟢 Zonas de Resiliência: Baixo IVT, maior cobertura vegetal ou influência oceânica.
+
+Redução de Dimensionalidade (PCA): Aplicamos PCA para visualizar a separação dos clusters em 2D, destacando os bairros com maior risco térmico.
+
+Artefatos Gerados:
+dados/ranking_vulnerabilidade.csv: Ranking decrescente para suporte à decisão em políticas 
+públicas.assets/mapa_clusters_espacial.png: Visualização da distribuição geográfica dos riscos na capital.
+
 📊 Estrutura de Pastas
-Plaintext
+
 RioFresco/
 ├── dados/               # Datasets Brutos e Processados (.csv, .geojson, .zip)
+├── research/            # Pesquisa científica e modelagem de ML
 ├── script/              # Scripts de automação e processamento
-│   ├── baixa_csv.py     # Script de coleta via API
-│   └── eda_clima.ipynb  # Notebook de análise e limpeza
 ├── requirements.txt     # Dependências do projeto
 └── README.md            # Documentação
+
 🧬 Principais Bibliotecas Utilizadas
 Pandas: Manipulação de dados e agregação.
 
@@ -66,6 +98,8 @@ Com base no Anuário do Turismo 2024, observamos que o Rio de Janeiro atingiu pi
 👷 Autor
 Lucas de Moraes Brandão
 Pedro Tonelli da Cunha
+Isac Freire
+Nargylla Fernanda Cloviel Lima
 
 Como rodar o projeto
 Clone o repositório: git clone [https://github.com/lucasm-brandao/RioFresco.git](https://github.com/lucasm-brandao/RioFresco.git)
