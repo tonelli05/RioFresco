@@ -65,8 +65,8 @@ RioFresco/
 ├── requirements.txt
 └── README.md
 ```
-👷 Autores
-*Lucas de Moraes Brandão
-*Pedro Tonelli da Cunha
-*Isac Freire
-*Nargylla Fernanda Cloviel Lima
+👷 Autores<br>
+Lucas de Moraes Brandão
+Pedro Tonelli da Cunha
+Isac Freire
+Nargylla Fernanda Cloviel Lima
