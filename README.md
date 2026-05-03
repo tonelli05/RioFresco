@@ -64,7 +64,7 @@ RioFresco/
 ├── assets/        # Visualizações de PCA e Mapas Interativos (HTML)
 ├── requirements.txt
 └── README.md
-
+```
 👷 Autores
 Lucas de Moraes Brandão
 
