@@ -63,3 +63,31 @@ df_final.to_csv("dados/verde_por_bairro.csv", index=False)
 
 print(f"Processado com unidades corrigidas! Exemplo: {df_final.iloc[0]['bairro']} = {df_final.iloc[0]['percentual_verde']:.2f}%")
 print(f"Processado! {len(df_final)} bairros mapeados com áreas verdes.")
+
+
+
+
+# ================================ VISUALIZAÇÃO INICIAL ================================
+import matplotlib.pyplot as plt
+import os
+
+# Garantir que a pasta assets existe
+os.makedirs("assets", exist_ok=True)
+
+# Criando a visualização inicial dos dados: Mapa de Bairros e Áreas Verdes
+fig, ax = plt.subplots(figsize=(12, 10))
+
+# Plotando os limites dos bairros (em cinza claro)
+limite_bairros.plot(ax=ax, color='lightgrey', edgecolor='black', alpha=0.5, label='Bairros')
+
+# Plotando as áreas de vegetação por cima (em verde)
+vegetacao.plot(ax=ax, color='forestgreen', alpha=0.7, label='Vegetação')
+
+# Adicionando título e ajustes
+ax.set_title("Limites de Bairros e Áreas de Vegetação", fontsize=14)
+ax.set_axis_off()
+
+# Salvando a imagem na pasta assets
+caminho_imagem = os.path.join("assets", "limte_bairros_vegetacao.png")
+plt.savefig(caminho_imagem, dpi=300, bbox_inches='tight')
+plt.close()
